@@ -20,6 +20,7 @@ export default {
     getTreeList().then((res) => {
       const data = res.data
       //  1. 扁平数据变成多层数据 递归数据
+      data.parent.forEach(p => { p.type = 'parent' })
       this.data = [...data.parent, ...data.child] // 数据所有合并
     })
   }
