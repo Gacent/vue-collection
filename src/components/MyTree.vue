@@ -18,7 +18,9 @@ export default {
       default () {
         return []
       }
-    }
+    },
+    diectoryDrop: Array,
+    fileDrop: Array
   },
   data () {
     return {
@@ -37,6 +39,7 @@ export default {
       return data.type === 'parent'
     },
     render (h, { node, data, store }) {
+      const list = this.isParent(data) ? this.diectoryDrop : this.fileDrop
       return (
         <div class="tree">
           <div>
@@ -51,8 +54,13 @@ export default {
               <i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>黄金糕</el-dropdown-item>
-              <el-dropdown-item>狮子头</el-dropdown-item>
+              {
+                list.map((item) =>
+                  (
+                    <el-dropdown-item>{item.value}</el-dropdown-item>
+                  )
+                )
+              }
             </el-dropdown-menu>
           </el-dropdown>
         </div>

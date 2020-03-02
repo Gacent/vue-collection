@@ -1,6 +1,10 @@
 <template>
   <div>
-    <MyTree :data="data"></MyTree>
+    <MyTree
+    :data="data"
+    :fileDrop="fileDrop"
+    :diectoryDrop="diectoryDrop"
+    ></MyTree>
   </div>
 </template>
 
@@ -13,7 +17,14 @@ export default {
   },
   data () {
     return {
-      data: []
+      data: [],
+      fileDrop: [
+        { text: 'rm', value: '删除文件' }
+      ],
+      diectoryDrop: [
+        { text: 'rn', value: '修改名字' },
+        { text: 'rm', value: '删除文件夹' }
+      ]
     }
   },
   mounted () {
