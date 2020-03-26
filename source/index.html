@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./Observer.js"></script>
+  <script src="./MVue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div v-text="person.name"></div>
+    <div v-html="htmlStr"></div>
+    <input type="text" v-model="person.name" />
+
+    <button v-on:click="handleClick">132</button>
+    <button @click="handleClick">321</button>
+    
+  </div>
+  <script>
+    var vm=new MVue({
+      el:'#app',
+      data:{
+        person:{
+          name:'小jason',
+          age:18,
+          fav:'姑凉',
+        },
+        msg:'MVVM',
+        htmlStr:'<h3>萨达教师点评</h3>'
+      },
+      methods:{
+        handleClick(){
+          this.person.name="asdioajdoiajksdp"
+        }
+      }
+    })
+  </script>
+</body>
+</html>
